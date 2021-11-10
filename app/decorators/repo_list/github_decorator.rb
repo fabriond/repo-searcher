@@ -15,7 +15,6 @@ class RepoList::GithubDecorator
 
   def pagination_info
     {
-      current_page_items: current_page_items,
       total_count: total_count,
       page: page,
       per_page: per_page

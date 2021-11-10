@@ -90,11 +90,10 @@ RSpec.describe RepoList::GithubDecorator, type: :decorator do
   describe "#pagination_info" do
     subject { decorator_instance.pagination_info }
     
-    it { expect(subject.keys).to match_array([:page, :per_page, :total_count, :current_page_items]) }
+    it { expect(subject.keys).to match_array([:page, :per_page, :total_count]) }
     
     it { expect(subject[:page]).to eq(decorator_instance.page) }
     it { expect(subject[:per_page]).to eq(decorator_instance.per_page) }
     it { expect(subject[:total_count]).to eq(decorator_instance.total_count) }
-    it { expect(subject[:current_page_items]).to match_array(decorator_instance.current_page_items) }
   end
 end
