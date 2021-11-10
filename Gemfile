@@ -33,6 +33,17 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Adds bootstrap for the frontend
+gem 'bootstrap', '~> 5.1.3'
+gem 'jquery-rails'
+
+# Use Faraday for web requests
+gem 'faraday'
+gem 'faraday_middleware'
+
+# Frontend pagination helper
+gem 'pagy', '~> 5.2'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

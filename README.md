@@ -15,6 +15,11 @@ To start the server in the background:
 $ docker-compose up -d
 ```
 
+To start the server in debug mode (enables byebug and binding.pry):
+```console
+$ docker-compose run --service-ports web
+```
+
 To open the container's console (only works after starting the server):
 ```
 $ docker-compose exec web bash
