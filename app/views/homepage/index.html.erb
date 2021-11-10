@@ -1,0 +1,28 @@
+<div class="d-flex flex-column align-items-center justify-center flex-wrap py-3">
+  <h1 class="text-capitalize"><%= t('homepage.title') %></h1>
+
+  <%= form_tag root_path, method: :get do %>
+    <div class="input-group">
+      <%= text_field_tag :repo_name, params[:repo_name], placeholder: t('homepage.form.placeholders.repo_name'), class: "form-control" %>
+      <div class="input-group-append">
+        <%= submit_tag t('homepage.form.submit'), class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @repositories.present? %>
+    <div class="d-flex flex-column align-items-center justify-center col-6 my-3">
+      <h2 class="align-self-left text-capitalize"><%= t('homepage.list.title') %></h2>
+
+      <ul class="list-group row col-12">
+        <% @repositories.each do |repo| %>
+          <%= render 'repo_detail', repo: repo %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @pagy_metadata.present? %>
+    <%== pagy_bootstrap_nav(@pagy_metadata) %>
+  <% end %>
+</div>
