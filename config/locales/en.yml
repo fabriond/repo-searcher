@@ -30,4 +30,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  homepage:
+    title: repo searcher
+    form:
+      placeholders:
+        repo_name: repository name
+      submit: search
+    list:
+      title: search results
+    
