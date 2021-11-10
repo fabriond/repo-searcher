@@ -26,8 +26,18 @@ class RepoSearch::GithubService < ApplicationService
 
   def conn
     @conn ||= Faraday.new('https://api.github.com', request: { timeout: 8, open_timeout: 5 }) do |f|
-      f.request :retry
+      f.request :retry, retry_options
       f.response :json
     end
+  end
+
+  def retry_options
+    {
+      max: 2,
+      interval: 0.05,
+      interval_randomness: 0.5,
+      backoff_factor: 2,
+      exceptions: [Faraday::ConnectionFailed]
+    }
   end
 end
