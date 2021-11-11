@@ -3,10 +3,10 @@ class HomepageController < ApplicationController
 
   def index
     repo_list = ::RepoSearch::GithubService.call(search_params)
-    if repo_list.present?
-      @repositories = repo_list.current_page_items
-      @pagy_metadata = paginate(repo_list.pagination_info)
-    end
+    return if repo_list.blank?
+
+    @repositories = repo_list.current_page_items
+    @pagy_metadata = paginate(repo_list.pagination_info)
   end
 
   private

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Pagination, type: :concern do  
-
+RSpec.describe Pagination, type: :concern do
   before(:all) do
     class PaginationTestController < ApplicationController
       include Pagination
@@ -9,16 +8,16 @@ RSpec.describe Pagination, type: :concern do
   end
 
   after(:all) do
-    Object.send :remove_const, :PaginationTestController 
+    Object.send :remove_const, :PaginationTestController
   end
 
   let(:controller_instance) { PaginationTestController.new }
 
-  describe "#paginate" do
+  describe '#paginate' do
     subject do
       controller_instance.paginate(
-        total_count: total_count, 
-        page: page, 
+        total_count: total_count,
+        page: page,
         per_page: per_page
       )
     end
@@ -27,8 +26,8 @@ RSpec.describe Pagination, type: :concern do
     let(:page) { 2 }
     let(:per_page) { 3 }
 
-    it "creates pagination metadata using Pagy.new" do
-      mocked_pagy_instance = "pagy_instance"
+    it 'creates pagination metadata using Pagy.new' do
+      mocked_pagy_instance = 'pagy_instance'
       pagy_options = { count: total_count, page: page, items: per_page }
       expect(Pagy).to receive(:new).with(pagy_options).once.and_return(mocked_pagy_instance)
 
