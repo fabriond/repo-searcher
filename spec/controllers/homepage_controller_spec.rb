@@ -32,6 +32,7 @@ RSpec.describe HomepageController, type: :controller do
         expect(response).to have_http_status(:ok)
         expect(response).to render_template(:index)
         expect(response.content_type).to eq("text/html")
+
         expect(assigns(:pagy_metadata)).to be_a(Pagy)
         expect(assigns(:repositories)).to be_a(Array)
         expect(assigns(:repositories).first.keys).to match_array([:name, :description, :url])

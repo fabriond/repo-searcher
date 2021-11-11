@@ -1,8 +1,8 @@
 class RepoList::GithubDecorator
   # According to https://docs.github.com/v3/search/ only the first 1000 search results are available
   MAX_AVAILABLE_SEARCH_RESULTS = 1000
-  DEFAULT_API_PAGE = 1
   DEFAULT_API_PER_PAGE = 30
+  DEFAULT_API_PAGE = 1
   
   attr_reader :current_page_items, :total_count, :page, :per_page
 
