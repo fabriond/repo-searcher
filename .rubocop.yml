@@ -28,3 +28,9 @@ Metrics/BlockLength:
 
 Style/AsciiComments:
   Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
