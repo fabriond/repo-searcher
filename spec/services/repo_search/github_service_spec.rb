@@ -1,14 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe RepoSearch::GithubService, type: :service do
-  let(:service_instance) { described_class.new(repo_name: repo_name, page: page, per_page: per_page) }
   let(:repo_name) { 'test' }
   let(:page) { 2 }
   let(:per_page) { 3 }
 
+  let(:service_instance) do
+    described_class.new(repo_name: repo_name, page: page, per_page: per_page)
+  end
+
   describe '#call' do
     subject do
-      VCR.use_cassette('repo_search/github_api', record: :new_episodes) { service_instance.call }
+      VCR.use_cassette('repo_search/github_api', record: :new_episodes) do
+        service_instance.call
+      end
     end
 
     context 'when repo_name is blank' do
